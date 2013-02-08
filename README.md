@@ -29,3 +29,12 @@ MTMigration assumes version numbers are incremented in a logical way, i.e. 1.0.1
 `NSString#compare` to do the comparison. Version numbers that are past the version specified in your app will not be run. For
 example, if your *-info.plist file specifies 1.2 as the app's version number, and you attempt to migrate to 1.3, the migration
 will not run.
+
+## Contributing
+
+This library does not handle some more intricate migration situations, if you come across intricate use cases from your own
+app, please add it and sumit a pull request. Be sure to add test cases.
+
+## Contributors
+
+[Parker Wightman](https://github.com/pwightman) ([@parkerwightman](http://twitter.com/parkerwightman))
