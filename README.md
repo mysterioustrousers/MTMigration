@@ -26,9 +26,12 @@ You would want to run this in your App Delegate or similar.
 ## Notes
 
 MTMigration assumes version numbers are incremented in a logical way, i.e. 1.0.1 -> 1.0.2, 1.1 -> 1.2, etc. MTMigration uses
-`NSString#compare` to do the comparison. Version numbers that are past the version specified in your app will not be run. For
-example, if your *-info.plist file specifies 1.2 as the app's version number, and you attempt to migrate to 1.3, the migration
-will not run.
+`NSString#compare` to do the comparison. 
+
+Version numbers that are past the version specified in your app will not be run. For example, if your *-info.plist file 
+specifies 1.2 as the app's version number, and you attempt to migrate to 1.3, the migration will not run.
+
+Blocks are executed on the main thread. If you have long-running jobs, you'll need to background it yourself.
 
 ## Contributing
 
