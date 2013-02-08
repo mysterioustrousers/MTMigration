@@ -7,7 +7,7 @@ Manages blocks of code that only need to run once on version updates in iOS apps
 
 MTMigration can be installed one of two ways:
 
-* Add `pod "MTMigration` to your [Podfile](http://cocoapods.org), import as necessary with: `#import <MTMigration/MTMigration.h>`.
+* Add `pod "MTMigration"` to your [Podfile](http://cocoapods.org), import as necessary with: `#import <MTMigration/MTMigration.h>`.
 * Add `MTMigration.{h,m}` to your project, import as necessary with: `#import "MTMigration.h"`.
 
 ## Usage
@@ -20,6 +20,8 @@ only ever run once.
   [obj doSomeDataStuff];
 }];
 ```
+
+You would want to run this in your App Delegate or similar.
 
 ## Notes
 
