@@ -17,7 +17,7 @@ only ever run once.
 
 ```objective-c
 [MTMigration migrateToVersion:@"1.1" block:^{
-  [obj doSomeDataStuff];
+    [obj doSomeDataStuff];
 }];
 ```
 
