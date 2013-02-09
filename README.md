@@ -22,7 +22,7 @@ only ever run once.
 ```
 
 Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, 
-it will migrate all un-migrated blocks. For example if you had:
+it will migrate all un-migrated blocks inbetween. For example, let's say you had the following migrations:
 
 ```objective-c
 [MTMigration migrateToVersion:@"0.9" block:^{
