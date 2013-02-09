@@ -21,6 +21,21 @@ only ever run once.
 }];
 ```
 
+Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, 
+it will migrate all un-migrated blocks. For example if you had:
+
+```objective-c
+[MTMigration migrateToVersion:@"0.9" block:^{
+    // Some 0.9 stuff
+}];
+
+[MTMigration migrateToVersion:@"1.0" block:^{
+    // Some 1.0 stuff
+}];
+```
+
+If a user was at version 0.8, skipped 0.9, and upgraded to 1.0, then both the `0.9` *and* `1.0` blocks would run.
+
 You would want to run this in your App Delegate or similar.
 
 ## Notes
