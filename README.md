@@ -51,7 +51,7 @@ Blocks are executed on the main thread. If you have long-running jobs, you'll ne
 ## Contributing
 
 This library does not handle some more intricate migration situations, if you come across intricate use cases from your own
-app, please add it and sumit a pull request. Be sure to add test cases.
+app, please add it and submit a pull request. Be sure to add test cases.
 
 ## Contributors
 
