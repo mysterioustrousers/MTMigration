@@ -1,7 +1,8 @@
 MTMigration
 ===========
 
-Manages blocks of code that only need to run once on version updates in iOS apps.
+Manages blocks of code that only need to run once on version updates in iOS apps. This could be anything from data normalization
+routines to "What's New In This Version" screens.
 
 ## Installation
 
