@@ -22,6 +22,8 @@ only ever run once.
 }];
 ```
 
+You would want to run this code in your app delegate or similar.
+
 Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, 
 it will migrate all un-migrated blocks inbetween. For example, let's say you had the following migrations:
 
@@ -37,7 +39,11 @@ it will migrate all un-migrated blocks inbetween. For example, let's say you had
 
 If a user was at version 0.8, skipped 0.9, and upgraded to 1.0, then both the `0.9` *and* `1.0` blocks would run.
 
-You would want to run this in your App Delegate or similar.
+For debugging/testing purposes, you can call `reset` to clear out the last migration MTMigration tracks:
+
+```objective-c
+[MTMigration reset];
+```
 
 ## Notes
 
