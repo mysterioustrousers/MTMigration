@@ -39,7 +39,8 @@ it will migrate all un-migrated blocks inbetween. For example, let's say you had
 
 If a user was at version 0.8, skipped 0.9, and upgraded to 1.0, then both the `0.9` *and* `1.0` blocks would run.
 
-For debugging/testing purposes, you can call `reset` to clear out the last migration MTMigration tracks:
+For debugging/testing purposes, you can call `reset` to clear out the last migration MTMigration remembered, causing all
+migrations to run from the beginning:
 
 ```objective-c
 [MTMigration reset];
