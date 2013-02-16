@@ -48,8 +48,8 @@ migrations to run from the beginning:
 
 ## Notes
 
-MTMigration assumes version numbers are incremented in a logical way, i.e. 1.0.1 -> 1.0.2, 1.1 -> 1.2, etc. MTMigration uses
-`NSString#compare` to do the comparison. 
+MTMigration assumes version numbers are incremented in a logical way, i.e. `1.0.1` -> `1.0.2`, `1.1` -> `1.2`, etc. MTMigration uses
+`NSString#compare:options:` to do the comparison, passing `NSNumericSearch` to `options:` so that `1.10` comes after `1.9`.
 
 Version numbers that are past the version specified in your app will not be run. For example, if your *-info.plist file 
 specifies 1.2 as the app's version number, and you attempt to migrate to 1.3, the migration will not run.
