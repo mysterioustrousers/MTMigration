@@ -74,4 +74,22 @@
 	
 }
 
+- (void)testMigratesInNaturalSortOrder
+{
+	[MTMigration reset];
+	
+	__block NSInteger val = 0;
+	
+	[MTMigration migrateToVersion:@"0.9" block:^{
+		val++;
+	}];
+	
+	[MTMigration migrateToVersion:@"0.10" block:^{
+		val*=2;
+	}];
+	
+	STAssertEquals(val, 2, @"Should use natural sort order, e.g. treat 0.10 as a follower of 0.9");
+	
+}
+
 @end

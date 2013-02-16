@@ -15,8 +15,8 @@
 
 + (void) migrateToVersion:(NSString *)version block:(void (^)())migrationBlock {
 	// version > lastMigrationVersion && version <= appVersion
-	if ([version compare:[self lastMigrationVersion]] == NSOrderedDescending &&
-		[version compare:[self appVersion]]           != NSOrderedDescending) {
+	if ([version compare:[self lastMigrationVersion] options:NSNumericSearch] == NSOrderedDescending &&
+		[version compare:[self appVersion] options:NSNumericSearch]           != NSOrderedDescending) {
 		
 			migrationBlock();
 		
