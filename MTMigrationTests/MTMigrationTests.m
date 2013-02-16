@@ -85,7 +85,7 @@
 	}];
 	
 	[MTMigration migrateToVersion:@"0.10" block:^{
-		val++;
+		val*=2;
 	}];
 	
 	STAssertEquals(val, 2, @"Should use natural sort order, e.g. treat 0.10 as a follower of 0.9");
