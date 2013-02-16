@@ -15,18 +15,18 @@
 
 + (void) migrateToVersion:(NSString *)version block:(void (^)())migrationBlock {
 	// version > lastMigrationVersion && version <= appVersion
-	if ([version compare:[self lastMigrationVersion] options:NSNumericSearch] == NSOrderedDescending &&
-		[version compare:[self appVersion] options:NSNumericSearch]           != NSOrderedDescending) {
+    if ([version compare:[self lastMigrationVersion] options:NSNumericSearch] == NSOrderedDescending &&
+        [version compare:[self appVersion] options:NSNumericSearch]           != NSOrderedDescending) {
 		
-			migrationBlock();
+            migrationBlock();
+
+		
+            #if DEBUG
+                NSLog(@"MTMigration: Running migration for version %@", version);
+            #endif
 		
 		
-			#if DEBUG
-				NSLog(@"MTMigration: Running migration for version %@", version);
-			#endif
-		
-		
-			[self setLastMigrationVersion:version];
+            [self setLastMigrationVersion:version];
 	}
 }
 
@@ -34,25 +34,25 @@
 
 
 + (void) reset {
-	[self setLastMigrationVersion:nil];
+    [self setLastMigrationVersion:nil];
 }
 
 
 
 
 + (NSString *)appVersion {
-	return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
 + (void) setLastMigrationVersion:(NSString *)version {
-	[[NSUserDefaults standardUserDefaults] setValue:version forKey:MT_MIGRATION_LAST_VERSION_KEY];
-	[[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MT_MIGRATION_LAST_VERSION_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSString *) lastMigrationVersion {
-	NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MT_MIGRATION_LAST_VERSION_KEY];
-	
-	return (res ? res : @"");
+    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MT_MIGRATION_LAST_VERSION_KEY];
+
+    return (res ? res : @"");
 }
 
 @end
