@@ -37,7 +37,7 @@ it will migrate all un-migrated blocks inbetween. For example, let's say you had
 }];
 ```
 
-If a user was at version 0.8, skipped 0.9, and upgraded to 1.0, then both the `0.9` *and* `1.0` blocks would run.
+If a user was at version `0.8`, skipped `0.9`, and upgraded to `1.0`, then both the `0.9` *and* `1.0` blocks would run.
 
 For debugging/testing purposes, you can call `reset` to clear out the last migration MTMigration remembered, causing all
 migrations to run from the beginning:
@@ -52,7 +52,7 @@ MTMigration assumes version numbers are incremented in a logical way, i.e. `1.0.
 `NSString#compare:options:` to do the comparison, passing `NSNumericSearch` to `options:` so that `1.10` comes after `1.9`.
 
 Version numbers that are past the version specified in your app will not be run. For example, if your *-info.plist file 
-specifies 1.2 as the app's version number, and you attempt to migrate to 1.3, the migration will not run.
+specifies `1.2` as the app's version number, and you attempt to migrate to `1.3`, the migration will not run.
 
 Blocks are executed on the thread the migration is run on. Background/foreground situations should be considered accordingly.
 
