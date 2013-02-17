@@ -63,5 +63,5 @@ app, please add it and submit a pull request. Be sure to add test cases.
 
 ## Contributors
 
-[Parker Wightman](https://github.com/pwightman) ([@parkerwightman](http://twitter.com/parkerwightman))
+[Parker Wightman](https://github.com/pwightman) ([@parkerwightman](http://twitter.com/parkerwightman))    
 [Good Samaritans](https://github.com/mysterioustrousers/MTMigration/contributors)
