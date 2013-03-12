@@ -16,7 +16,7 @@ MTMigration can be installed one of two ways:
 By giving a version number and block of code to `migrateToVersion:block:`, MTMigration will ensure that the block of code is
 only ever run once.
 
-```objective-c
+```objc
 [MTMigration migrateToVersion:@"1.1" block:^{
     [obj doSomeDataStuff];
 }];
@@ -27,7 +27,7 @@ You would want to run this code in your app delegate or similar.
 Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, 
 it will migrate all un-migrated blocks inbetween. For example, let's say you had the following migrations:
 
-```objective-c
+```objc
 [MTMigration migrateToVersion:@"0.9" block:^{
     // Some 0.9 stuff
 }];
@@ -42,7 +42,7 @@ If a user was at version `0.8`, skipped `0.9`, and upgraded to `1.0`, then both 
 For debugging/testing purposes, you can call `reset` to clear out the last migration MTMigration remembered, causing all
 migrations to run from the beginning:
 
-```objective-c
+```objc
 [MTMigration reset];
 ```
 
