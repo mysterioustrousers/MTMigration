@@ -92,4 +92,21 @@
 	
 }
 
+- (void)testRunsApplicationUpdateBlockOnce
+{
+    [MTMigration reset];
+    
+    __block NSInteger val = 0;
+    
+    [MTMigration updateApplicationBlock:^{
+        val++;
+    }];
+    
+    [MTMigration updateApplicationBlock:^{
+        val++;
+    }];
+    
+    STAssertEquals(val, 1, @"Should only call block once");
+}
+
 @end
