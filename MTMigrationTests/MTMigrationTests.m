@@ -35,7 +35,7 @@
 		val = 1;
 	}];
 	
-	STAssertEquals(val, 1, @"Should execute migration after reset");
+	STAssertEquals(val, 0, @"Should execute migration after reset");
 	
 }
 
