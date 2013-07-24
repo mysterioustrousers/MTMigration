@@ -12,7 +12,7 @@
 
 + (void) migrateToVersion:(NSString *)version block:(void (^)())migrationBlock;
 
-+ (void) updateApplicationBlock:(void (^)())updateBlock;
++ (void) applicationUpdateBlock:(void (^)())updateBlock;
 
 + (void) reset;
 

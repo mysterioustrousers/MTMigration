@@ -24,7 +24,7 @@ only ever run once.
 
 You would want to run this code in your app delegate or similar.
 
-Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, 
+Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, applicationUpdateBlock
 it will migrate all un-migrated blocks inbetween. For example, let's say you had the following migrations:
 
 ```objc
@@ -39,7 +39,7 @@ it will migrate all un-migrated blocks inbetween. For example, let's say you had
 
 If a user was at version `0.8`, skipped `0.9`, and upgraded to `1.0`, then both the `0.9` *and* `1.0` blocks would run.
 
-If you need a block that runs on every application update (even if you don't specify a block for that version), pass that block to the `updateApplicationBlock:` method. It will be called on every change of the version of your application.
+If you need a block that runs on every application update (even if you don't specify a block for that version), pass that block to the `applicationUpdateBlock:` method. It will be called on every change of the version of your application.
 
 For debugging/testing purposes, you can call `reset` to clear out the last migration MTMigration remembered, causing all
 migrations to run from the beginning:

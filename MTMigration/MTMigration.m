@@ -32,7 +32,7 @@
 }
 
 
-+ (void) updateApplicationBlock:(void (^)())updateBlock {
++ (void) applicationUpdateBlock:(void (^)())updateBlock {
     if (![[self lastAppVersion] isEqualToString:[self appVersion]]) {
         
         updateBlock();
