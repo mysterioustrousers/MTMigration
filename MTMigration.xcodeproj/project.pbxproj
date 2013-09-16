@@ -53,9 +53,9 @@
 		5FD66FD416C4852D00FE15E2 /* MTMigrationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MTMigrationTests-Info.plist"; sourceTree = "<group>"; };
 		5FD66FD616C4852D00FE15E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5FD66FD816C4852D00FE15E2 /* MTMigrationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTMigrationTests.h; sourceTree = "<group>"; };
-		5FD66FD916C4852D00FE15E2 /* MTMigrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTMigrationTests.m; sourceTree = "<group>"; };
-		5FD66FE316C4854300FE15E2 /* MTMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMigration.h; sourceTree = "<group>"; };
-		5FD66FE416C4854300FE15E2 /* MTMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMigration.m; sourceTree = "<group>"; };
+		5FD66FD916C4852D00FE15E2 /* MTMigrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MTMigrationTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5FD66FE316C4854300FE15E2 /* MTMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MTMigration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5FD66FE416C4854300FE15E2 /* MTMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MTMigration.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +444,7 @@
 				5FD66FDF16C4852D00FE15E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FD66FE016C4852D00FE15E2 /* Build configuration list for PBXNativeTarget "MTMigrationTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +453,7 @@
 				5FD66FE216C4852D00FE15E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -92,4 +92,47 @@
 	
 }
 
+- (void)testRunsApplicationUpdateBlockOnce
+{
+    [MTMigration reset];
+    
+    __block NSInteger val = 0;
+    
+    [MTMigration applicationUpdateBlock:^{
+        val++;
+    }];
+    
+    [MTMigration applicationUpdateBlock:^{
+        val++;
+    }];
+    
+    STAssertEquals(val, 1, @"Should only call block once");
+}
+
+- (void)testRunsApplicationUpdateBlockeOnlyOnceWithMultipleMigrations
+{
+	[MTMigration reset];
+	
+	__block NSInteger val = 0;
+    
+    [MTMigration migrateToVersion:@"0.8" block:^{
+		// Do something
+	}];
+	
+	[MTMigration migrateToVersion:@"0.9" block:^{
+		// Do something
+	}];
+	
+	[MTMigration migrateToVersion:@"0.10" block:^{
+		// Do something
+	}];
+    
+    [MTMigration applicationUpdateBlock:^{
+        val = 1;
+    }];
+	
+	STAssertEquals(val, 1, @"Should call the applicationUpdateBlock only once no matter how many migrations have to be done.");
+	
+}
+
 @end

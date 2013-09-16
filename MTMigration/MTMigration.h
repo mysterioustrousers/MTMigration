@@ -12,6 +12,8 @@
 
 + (void) migrateToVersion:(NSString *)version block:(void (^)())migrationBlock;
 
++ (void) applicationUpdateBlock:(void (^)())updateBlock;
+
 + (void) reset;
 
 @end
