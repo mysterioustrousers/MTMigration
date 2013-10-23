@@ -49,6 +49,7 @@
 
 + (void) reset {
     [self setLastMigrationVersion:nil];
+    [self setLastAppVersion:nil];
 }
 
 
