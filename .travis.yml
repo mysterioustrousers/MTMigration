@@ -1,2 +1,5 @@
 language: objective-c
-xcode_sdk: iphonesimulator
+install:
+    - cd MTMigration
+    - pod install
+script: xctool -workspace MTMigration.xcworkspace -scheme 'MTMigration' -configuration Release -sdk iphonesimulator -arch i386 build
