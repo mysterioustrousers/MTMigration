@@ -372,6 +372,7 @@
 		5FD66FDE16C4852D00FE15E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTMigration/MTMigration-Prefix.pch";
 				INFOPLIST_FILE = "MTMigration/MTMigration-Info.plist";
@@ -383,6 +384,7 @@
 		5FD66FDF16C4852D00FE15E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTMigration/MTMigration-Prefix.pch";
 				INFOPLIST_FILE = "MTMigration/MTMigration-Info.plist";
