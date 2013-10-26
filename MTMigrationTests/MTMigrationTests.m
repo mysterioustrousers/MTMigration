@@ -25,6 +25,34 @@
     [super tearDown];
 }
 
+- (void)testMigrationReset
+{
+	[MTMigration reset];
+	
+	__block NSInteger val = 0;
+    
+	[MTMigration migrateToVersion:@"0.9" block:^{
+		val++;
+	}];
+    
+	[MTMigration migrateToVersion:@"1.0" block:^{
+		val++;
+	}];
+	
+	[MTMigration reset];
+
+	[MTMigration migrateToVersion:@"0.9" block:^{
+		val++;
+	}];
+    
+	[MTMigration migrateToVersion:@"1.0" block:^{
+		val++;
+	}];
+	
+	STAssertEquals(val, 4, @"Should execute all migrations again after reset");
+    
+}
+
 - (void)testMigratesOnFirstRun
 {
 	[MTMigration reset];
