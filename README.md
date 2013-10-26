@@ -1,7 +1,7 @@
 MTMigration
 ===========
 
-Manages blocks of code that only need to run once on version updates in iOS apps. This could be anything from data 
+Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data 
 normalization routines, "What's New In This Version" screens, or bug fixes.
 
 ## Installation
@@ -24,7 +24,7 @@ only ever run once.
 
 You would want to run this code in your app delegate or similar.
 
-Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration, applicationUpdateBlock
+Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration,
 it will migrate all un-migrated blocks inbetween. For example, let's say you had the following migrations:
 
 ```objc
@@ -50,8 +50,7 @@ migrations to run from the beginning:
 
 ## Notes
 
-MTMigration assumes version numbers are incremented in a logical way, i.e. `1.0.1` -> `1.0.2`, `1.1` -> `1.2`, etc. MTMigration uses
-`NSString#compare:options:` to do the comparison, passing `NSNumericSearch` to `options:` so that `1.10` comes after `1.9`.
+MTMigration assumes version numbers are incremented in a logical way, i.e. `1.0.1` -> `1.0.2`, `1.1` -> `1.2`, etc.
 
 Version numbers that are past the version specified in your app will not be run. For example, if your *-info.plist file 
 specifies `1.2` as the app's version number, and you attempt to migrate to `1.3`, the migration will not run.
