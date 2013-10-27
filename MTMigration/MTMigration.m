@@ -8,8 +8,8 @@
 
 #import "MTMigration.h"
 
-#define MT_MIGRATION_LAST_VERSION_KEY @"MTMigration.lastMigrationVersion"
-#define MT_MIGRATION_APP_VERSION_KEY @"MTMigration.appVersion"
+#define MT_MIGRATION_LAST_VERSION_KEY     @"MTMigration.lastMigrationVersion"
+#define MT_MIGRATION_APP_VERSION_KEY      @"MTMigration.appVersion"
 #define MT_MIGRATION_LAST_APP_VERSION_KEY @"MTMigration.lastAppVersion"
 
 @implementation MTMigration
@@ -20,12 +20,10 @@
         [version compare:[self appVersion] options:NSNumericSearch]           != NSOrderedDescending) {
 		
             migrationBlock();
-
 		
             #if DEBUG
                 NSLog(@"MTMigration: Running migration for version %@", version);
             #endif
-		
 		
             [self setLastMigrationVersion:version];
 	}
