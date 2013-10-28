@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void (^MTExecutionBlock)(void);
+
+
 @interface MTMigration : NSObject
 
-+ (void) migrateToVersion:(NSString *)version block:(void (^)())migrationBlock;
++ (void) migrateToVersion:(NSString *)version block:(MTExecutionBlock)migrationBlock;
 
-+ (void) applicationUpdateBlock:(void (^)())updateBlock;
++ (void) applicationUpdateBlock:(MTExecutionBlock)updateBlock;
 
 + (void) reset;
 
