@@ -8,9 +8,8 @@
 
 #import "MTMigration.h"
 
-#define MT_MIGRATION_LAST_VERSION_KEY     @"MTMigration.lastMigrationVersion"
-#define MT_MIGRATION_APP_VERSION_KEY      @"MTMigration.appVersion"
-#define MT_MIGRATION_LAST_APP_VERSION_KEY @"MTMigration.lastAppVersion"
+static NSString * const MTMigrationLastVersionKey      = @"MTMigration.lastMigrationVersion";
+static NSString * const MTMigrationLastAppVersionKey   = @"MTMigration.lastAppVersion";
 
 @implementation MTMigration
 
@@ -58,23 +57,23 @@
 }
 
 + (void) setLastMigrationVersion:(NSString *)version {
-    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MT_MIGRATION_LAST_VERSION_KEY];
+    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MTMigrationLastVersionKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSString *) lastMigrationVersion {
-    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MT_MIGRATION_LAST_VERSION_KEY];
+    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastVersionKey];
 
     return (res ? res : @"");
 }
 
 + (void)setLastAppVersion:(NSString *)version {
-    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MT_MIGRATION_LAST_APP_VERSION_KEY];
+    [[NSUserDefaults standardUserDefaults] setValue:version forKey:MTMigrationLastAppVersionKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSString *) lastAppVersion {
-    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MT_MIGRATION_LAST_APP_VERSION_KEY];
+    NSString *res = [[NSUserDefaults standardUserDefaults] valueForKey:MTMigrationLastAppVersionKey];
     
     return (res ? res : @"");
 }
