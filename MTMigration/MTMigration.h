@@ -34,7 +34,7 @@ typedef void (^MTExecutionBlock)(void);
 
 + (void) applicationUpdateBlock:(MTExecutionBlock)updateBlock;
 
-/** Clears the last migration remembered by MTMigration. Causes all migration to run from the beginning. */
+/** Clears the last migration remembered by MTMigration. Causes all migrations to run from the beginning. */
 
 + (void) reset;
 
