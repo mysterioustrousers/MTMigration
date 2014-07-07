@@ -5,8 +5,9 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/mysterioustrousers/MTMigration"
   s.license      = 'MIT'
   s.author       = { "Parker Wightman" => "parkerwightman@gmail.com" }
-  s.source       = { :git => "https://github.com/mysterioustrousers/MTMigration.git", :tag => "0.0.3" }
-  s.platform     = :ios, '5.0'
+  s.source       = { :git => "https://github.com/mysterioustrousers/MTMigration.git", :tag => "#{s.version}" }
   s.source_files = 'MTMigration/MTMigration.{h,m}'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.6'
   s.requires_arc = true
 end
