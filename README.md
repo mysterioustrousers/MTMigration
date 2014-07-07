@@ -1,7 +1,7 @@
 MTMigration
 ===========
 
-Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data 
+Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data
 normalization routines, "What's New In This Version" screens, or bug fixes.
 
 ## Installation
@@ -13,7 +13,7 @@ MTMigration can be installed one of two ways:
 
 ## Usage
 
-If you need a block that runs every time your application version changes, pass that block to 
+If you need a block that runs every time your application version changes, pass that block to
 the `applicationUpdateBlock:` method.
 
 ```objc
@@ -22,7 +22,7 @@ the `applicationUpdateBlock:` method.
 }];
 ```
 
-If a block is specific to a version, use `migrateToVersion:block:` and MTMigration will 
+If a block is specific to a version, use `migrateToVersion:block:` and MTMigration will
 ensure that the block of code is only ever run once for that version.
 
 ```objc
@@ -59,7 +59,7 @@ migrations to run from the beginning:
 
 MTMigration assumes version numbers are incremented in a logical way, i.e. `1.0.1` -> `1.0.2`, `1.1` -> `1.2`, etc.
 
-Version numbers that are past the version specified in your app will not be run. For example, if your *-info.plist file 
+Version numbers that are past the version specified in your app will not be run. For example, if your *-info.plist file
 specifies `1.2` as the app's version number, and you attempt to migrate to `1.3`, the migration will not run.
 
 Blocks are executed on the thread the migration is run on. Background/foreground situations should be considered accordingly.
@@ -71,7 +71,7 @@ app, please add it and submit a pull request. Be sure to add test cases.
 
 ## Contributors
 
-- [Parker Wightman](https://github.com/pwightman) ([@parkerwightman](http://twitter.com/parkerwightman))    
+- [Parker Wightman](https://github.com/pwightman) ([@parkerwightman](http://twitter.com/parkerwightman))
 - [Good Samaritans](https://github.com/mysterioustrousers/MTMigration/contributors)
 - [Hector Zarate](https://github.com/Hecktorzr)
 - [Sandro Meier](https://github.com/fechu)
