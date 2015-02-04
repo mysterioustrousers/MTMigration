@@ -33,6 +33,8 @@ ensure that the block of code is only ever run once for that version.
 
 You would want to run this code in your app delegate or similar.
 
+Parallel methods for `migrateToBuild:block:` are also available.
+
 Because MTMigration inspects your *-info.plist file for your actual version number and keeps track of the last migration,
 it will migrate all un-migrated blocks inbetween. For example, let's say you had the following migrations:
 
