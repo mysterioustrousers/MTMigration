@@ -44,6 +44,16 @@ typedef void (^MTExecutionBlock)(void);
 
 + (void) applicationUpdateBlock:(MTExecutionBlock)updateBlock;
 
+/**
+
+ Executes a block of code for every time the application build number changes.
+
+ @param updateBlock A block object to be executed when the application build number changes. This parameter can't be nil.
+
+ */
+
++ (void) buildNumberUpdateBlock:(MTExecutionBlock)updateBlock;
+
 /** Clears the last migration remembered by MTMigration. Causes all migrations to run from the beginning. */
 
 + (void) reset;

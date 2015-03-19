@@ -33,6 +33,7 @@ static NSString * const MTMigrationLastAppBuildKey   = @"MTMigration.lastAppBuil
     }
 }
 
+
 + (void) migrateToBuild:(NSString *)build block:(MTExecutionBlock)migrationBlock
 {
     // build > lastMigrationBuild && build <= appVersion
@@ -40,9 +41,9 @@ static NSString * const MTMigrationLastAppBuildKey   = @"MTMigration.lastAppBuil
         [build compare:[self appBuild] options:NSNumericSearch]           != NSOrderedDescending) {
         migrationBlock();
 
-#if DEBUG
-        NSLog(@"MTMigration: Running migration for build %@", build);
-#endif
+        #if DEBUG
+            NSLog(@"MTMigration: Running migration for build %@", build);
+        #endif
 
         [self setLastMigrationBuild:build];
     }
@@ -54,10 +55,23 @@ static NSString * const MTMigrationLastAppBuildKey   = @"MTMigration.lastAppBuil
         updateBlock();
 
         #if DEBUG
-            NSLog(@"MTMigration: Running update Block");
+            NSLog(@"MTMigration: Running update Block for version %@", [self appVersion]);
         #endif
 
         [self setLastAppVersion:[self appVersion]];
+    }
+}
+
+
++ (void) buildNumberUpdateBlock:(MTExecutionBlock)updateBlock {
+    if (![[self lastAppBuild] isEqualToString:[self appBuild]]) {
+        updateBlock();
+        
+        #if DEBUG
+            NSLog(@"MTMigration: Running update Block for build %@", [self appBuild]);
+        #endif
+        
+        [self setLastAppBuild:[self appBuild]];
     }
 }
 
