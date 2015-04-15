@@ -13,10 +13,15 @@
 
 @implementation MTMigrationTests
 
+- (void)setUp {
+    
+    [super setUp];
+    [MTMigration reset];
+}
+
 - (void)testMigrationReset
 {
-	[MTMigration reset];
-    
+
     XCTestExpectation *expectingBlock1Run = [self expectationWithDescription:@"Expecting block to be run for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
         [expectingBlock1Run fulfill];
@@ -44,7 +49,6 @@
 
 - (void)testMigratesOnFirstRun
 {
-	[MTMigration reset];
 
     XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Should execute migration after reset"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
@@ -56,8 +60,7 @@
 
 - (void)testMigratesOnce
 {
-	[MTMigration reset];
-	
+
     XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Expecting block to be run"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
         [expectationBlockRun fulfill];
@@ -72,8 +75,7 @@
 
 - (void)testMigratesPreviousBlocks
 {
-	[MTMigration reset];
-	
+
     XCTestExpectation *expectingBlock1Run = [self expectationWithDescription:@"Expecting block to be run for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
         [expectingBlock1Run fulfill];
@@ -89,8 +91,7 @@
 
 - (void)testMigratesInNaturalSortOrder
 {
-	[MTMigration reset];
-	
+
     XCTestExpectation *expectingBlock1Run = [self expectationWithDescription:@"Expecting block to be run for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
         [expectingBlock1Run fulfill];
@@ -110,8 +111,7 @@
 
 - (void)testRunsApplicationUpdateBlockOnce
 {
-    [MTMigration reset];
-    
+
     XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Should only call block once"];
     [MTMigration applicationUpdateBlock:^{
         [expectationBlockRun fulfill];
@@ -126,8 +126,7 @@
 
 - (void)testRunsApplicationUpdateBlockeOnlyOnceWithMultipleMigrations
 {
-	[MTMigration reset];
-	
+
     [MTMigration migrateToVersion:@"0.8" block:^{
 		// Do something
 	}];
