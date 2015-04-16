@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: MTMigration.xcodeproj
 xcode_scheme: MTMigration
+xcode_sdk: iphonesimulator8.1
