@@ -16,7 +16,6 @@
 		5FD66FC116C4852D00FE15E2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD66FC016C4852D00FE15E2 /* Default.png */; };
 		5FD66FC316C4852D00FE15E2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD66FC216C4852D00FE15E2 /* Default@2x.png */; };
 		5FD66FC516C4852D00FE15E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD66FC416C4852D00FE15E2 /* Default-568h@2x.png */; };
-		5FD66FCD16C4852D00FE15E2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FCC16C4852D00FE15E2 /* SenTestingKit.framework */; };
 		5FD66FCE16C4852D00FE15E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FAE16C4852D00FE15E2 /* UIKit.framework */; };
 		5FD66FCF16C4852D00FE15E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FB016C4852D00FE15E2 /* Foundation.framework */; };
 		5FD66FD716C4852D00FE15E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FD66FD516C4852D00FE15E2 /* InfoPlist.strings */; };
@@ -48,8 +47,7 @@
 		5FD66FC016C4852D00FE15E2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5FD66FC216C4852D00FE15E2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5FD66FC416C4852D00FE15E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTMigrationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FD66FCC16C4852D00FE15E2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTMigrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD66FD416C4852D00FE15E2 /* MTMigrationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MTMigrationTests-Info.plist"; sourceTree = "<group>"; };
 		5FD66FD616C4852D00FE15E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5FD66FD816C4852D00FE15E2 /* MTMigrationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTMigrationTests.h; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FD66FCD16C4852D00FE15E2 /* SenTestingKit.framework in Frameworks */,
 				5FD66FCE16C4852D00FE15E2 /* UIKit.framework in Frameworks */,
 				5FD66FCF16C4852D00FE15E2 /* Foundation.framework in Frameworks */,
 			);
@@ -96,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				5FD66FAB16C4852D00FE15E2 /* MTMigration.app */,
-				5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.octest */,
+				5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +104,6 @@
 				5FD66FAE16C4852D00FE15E2 /* UIKit.framework */,
 				5FD66FB016C4852D00FE15E2 /* Foundation.framework */,
 				5FD66FB216C4852D00FE15E2 /* CoreGraphics.framework */,
-				5FD66FCC16C4852D00FE15E2 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,8 +189,8 @@
 			);
 			name = MTMigrationTests;
 			productName = MTMigrationTests;
-			productReference = 5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -398,13 +394,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTMigration/MTMigration-Prefix.pch";
 				INFOPLIST_FILE = "MTMigrationTests/MTMigrationTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -415,13 +411,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTMigration/MTMigration-Prefix.pch";
 				INFOPLIST_FILE = "MTMigrationTests/MTMigrationTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

@@ -9,140 +9,124 @@
 #import "MTMigrationTests.h"
 #import "MTMigration.h"
 
+#define kDefaultWaitForExpectionsTimeout 2.0
+
 @implementation MTMigrationTests
 
-- (void)setUp
-{
+- (void)setUp {
+    
     [super setUp];
-    
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
+    [MTMigration reset];
 }
 
 - (void)testMigrationReset
 {
-	[MTMigration reset];
-	
-	__block NSInteger val = 0;
-    
+
+    XCTestExpectation *expectingBlock1Run = [self expectationWithDescription:@"Expecting block to be run for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
-		val++;
+        [expectingBlock1Run fulfill];
 	}];
     
+    XCTestExpectation *expectingBlock2Run = [self expectationWithDescription:@"Expecting block to be run for version 1.0"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
-		val++;
+        [expectingBlock2Run fulfill];
 	}];
 	
 	[MTMigration reset];
 
+    XCTestExpectation *expectingBlock3Run = [self expectationWithDescription:@"Expecting block to be run AGAIN for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
-		val++;
+        [expectingBlock3Run fulfill];
 	}];
     
+    XCTestExpectation *expectingBlock4Run = [self expectationWithDescription:@"Expecting block to be run AGAIN for version 1.0"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
-		val++;
+        [expectingBlock4Run fulfill];
 	}];
-	
-	STAssertEquals(val, 4, @"Should execute all migrations again after reset");
     
+    [self waitForAllExpectations];
 }
 
 - (void)testMigratesOnFirstRun
 {
-	[MTMigration reset];
-	
-	__block NSInteger val = 0;
-	
+
+    XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Should execute migration after reset"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
-		val = 1;
+        [expectationBlockRun fulfill];
 	}];
 	
-	STAssertEquals(val, 1, @"Should execute migration after reset");
-	
+    [self waitForAllExpectations];
 }
 
 - (void)testMigratesOnce
 {
-	[MTMigration reset];
-	
-	__block NSInteger val = 0;
-	
+
+    XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Expecting block to be run"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
+        [expectationBlockRun fulfill];
 	}];
 	
 	[MTMigration migrateToVersion:@"1.0" block:^{
-		val = 1;
+        XCTFail(@"Should not execute a block for the same version twice.");
 	}];
 	
-	STAssertEquals(val, 0, @"Should not execute a block for the same version twice.");
-	
+    [self waitForAllExpectations];
 }
 
 - (void)testMigratesPreviousBlocks
 {
-	[MTMigration reset];
-	
-	__block NSInteger val = 0;
-	
+
+    XCTestExpectation *expectingBlock1Run = [self expectationWithDescription:@"Expecting block to be run for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
-		val++;
+        [expectingBlock1Run fulfill];
 	}];
 	
+    XCTestExpectation *expectingBlock2Run = [self expectationWithDescription:@"Expecting block to be run for version 1.0"];
 	[MTMigration migrateToVersion:@"1.0" block:^{
-		val++;
+        [expectingBlock2Run fulfill];
 	}];
 	
-	STAssertEquals(val, 2, @"Should execute any migrations that have not run yet");
-	
+    [self waitForAllExpectations];
 }
 
 - (void)testMigratesInNaturalSortOrder
 {
-	[MTMigration reset];
-	
-	__block NSInteger val = 0;
-	
+
+    XCTestExpectation *expectingBlock1Run = [self expectationWithDescription:@"Expecting block to be run for version 0.9"];
 	[MTMigration migrateToVersion:@"0.9" block:^{
-		val++;
+        [expectingBlock1Run fulfill];
 	}];
+    
+    [MTMigration migrateToVersion:@"0.1" block:^{
+        XCTFail(@"Should use natural sort order, e.g. treat 0.10 as a follower of 0.9");
+    }];
 	
+    XCTestExpectation *expectingBlock2Run = [self expectationWithDescription:@"Expecting block to be run for version 0.10"];
 	[MTMigration migrateToVersion:@"0.10" block:^{
-		val*=2;
+        [expectingBlock2Run fulfill];
 	}];
 	
-	STAssertEquals(val, 2, @"Should use natural sort order, e.g. treat 0.10 as a follower of 0.9");
-	
+    [self waitForAllExpectations];
 }
 
 - (void)testRunsApplicationUpdateBlockOnce
 {
-    [MTMigration reset];
-    
-    __block NSInteger val = 0;
-    
+
+    XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Should only call block once"];
     [MTMigration applicationUpdateBlock:^{
-        val++;
+        [expectationBlockRun fulfill];
     }];
     
     [MTMigration applicationUpdateBlock:^{
-        val++;
+        XCTFail(@"Expected applicationUpdateBlock to be called only once");
     }];
     
-    STAssertEquals(val, 1, @"Should only call block once");
+    [self waitForAllExpectations];
 }
 
 - (void)testRunsApplicationUpdateBlockeOnlyOnceWithMultipleMigrations
 {
-	[MTMigration reset];
-	
-	__block NSInteger val = 0;
-    
+
     [MTMigration migrateToVersion:@"0.8" block:^{
 		// Do something
 	}];
@@ -155,12 +139,19 @@
 		// Do something
 	}];
     
+    XCTestExpectation *expectationBlockRun = [self expectationWithDescription:@"Should call the applicationUpdateBlock only once no matter how many migrations have to be done"];
     [MTMigration applicationUpdateBlock:^{
-        val = 1;
+        [expectationBlockRun fulfill];
     }];
-	
-	STAssertEquals(val, 1, @"Should call the applicationUpdateBlock only once no matter how many migrations have to be done.");
-	
+
+    [self waitForAllExpectations];
+}
+
+- (void)waitForAllExpectations {
+    
+    [self waitForExpectationsWithTimeout:kDefaultWaitForExpectionsTimeout handler:^(NSError *error) {
+        //do nothing
+    }];
 }
 
 @end
