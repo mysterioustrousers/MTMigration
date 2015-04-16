@@ -1,6 +1,8 @@
 MTMigration
 ===========
 
+[![Build Status](https://travis-ci.org/mysterioustrousers/MTMigration.svg?branch=master)](https://travis-ci.org/mysterioustrousers/MTMigration)
+
 Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data
 normalization routines, "What's New In This Version" screens, or bug fixes.
 
