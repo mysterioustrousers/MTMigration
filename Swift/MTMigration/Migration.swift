@@ -47,11 +47,6 @@ public struct Migration {
         self.setLastMigrationVersion(nil)
         self.setLastAppBuild(nil)
         self.setLastMigrationBuild(nil)
-        
-        print("self.lastAppVersion: \(self.lastAppVersion)")
-        print("self.lastMigrationVersion: \(self.lastMigrationVersion)")
-        print("self.lastAppBuild: \(self.lastAppBuild)")
-        print("self.lastMigrationBuild: \(self.lastMigrationBuild)")
     }
     
     // MARK: - Private methods and properties
