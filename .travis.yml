@@ -1,5 +1,7 @@
 language: objective-c
-xcode_project:
-  MTMigration.xcodeproj
-xcode_scheme: MTMigration
-xcode_sdk: iphonesimulator9.1
+before_install:
+    - brew update
+    - brew install xctool
+script:
+  xctool -project MTMigration.xcodeproj -scheme MTMigration -sdk iphonesimulator9.1 test
+  xctool -project ./Swift/MTMigration.xcodeproj -scheme MTMigration -sdk iphonesimulator9.1 test
