@@ -1,6 +1,5 @@
 language: objective-c
 xcode_project:
   MTMigration.xcodeproj
-  ./Swift/MTMigration.xcodeproj
 xcode_scheme: MTMigration
 xcode_sdk: iphonesimulator9.1
