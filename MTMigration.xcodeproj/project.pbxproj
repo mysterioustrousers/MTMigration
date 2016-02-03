@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		50D5228D1C61B59B0031B1FB /* VersionMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D5228C1C61B59B0031B1FB /* VersionMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		50D522911C61B59B0031B1FB /* VersionMigration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D5228A1C61B59B0031B1FB /* VersionMigration.framework */; };
-		50D522921C61B59B0031B1FB /* VersionMigration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50D5228A1C61B59B0031B1FB /* VersionMigration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50D5229B1C61B6090031B1FB /* MTMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FD66FE316C4854300FE15E2 /* MTMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D5229C1C61B6100031B1FB /* MTMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD66FE416C4854300FE15E2 /* MTMigration.m */; };
 		5FD66FAF16C4852D00FE15E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FAE16C4852D00FE15E2 /* UIKit.framework */; };
@@ -29,13 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50D5228F1C61B59B0031B1FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5FD66FA316C4852D00FE15E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 50D522891C61B59B0031B1FB;
-			remoteInfo = VersionMigration;
-		};
 		5FD66FD016C4852D00FE15E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FD66FA316C4852D00FE15E2 /* Project object */;
@@ -44,20 +35,6 @@
 			remoteInfo = MTMigration;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		50D522961C61B59B0031B1FB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				50D522921C61B59B0031B1FB /* VersionMigration.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		50D5228A1C61B59B0031B1FB /* VersionMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VersionMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +76,6 @@
 			files = (
 				5FD66FAF16C4852D00FE15E2 /* UIKit.framework in Frameworks */,
 				5FD66FB116C4852D00FE15E2 /* Foundation.framework in Frameworks */,
-				50D522911C61B59B0031B1FB /* VersionMigration.framework in Frameworks */,
 				5FD66FB316C4852D00FE15E2 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,12 +249,10 @@
 				5FD66FA716C4852D00FE15E2 /* Sources */,
 				5FD66FA816C4852D00FE15E2 /* Frameworks */,
 				5FD66FA916C4852D00FE15E2 /* Resources */,
-				50D522961C61B59B0031B1FB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				50D522901C61B59B0031B1FB /* PBXTargetDependency */,
 			);
 			name = MTMigration;
 			productName = MTMigration;
@@ -413,11 +387,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		50D522901C61B59B0031B1FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 50D522891C61B59B0031B1FB /* VersionMigration */;
-			targetProxy = 50D5228F1C61B59B0031B1FB /* PBXContainerItemProxy */;
-		};
 		5FD66FD116C4852D00FE15E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5FD66FAA16C4852D00FE15E2 /* MTMigration */;
