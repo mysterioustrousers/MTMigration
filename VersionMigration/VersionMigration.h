@@ -6,7 +6,7 @@
 //  Copyright © 2016 Mysterious Trousers. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <VersionMigration/MTMigration.h>
 
 //! Project version number for VersionMigration.
 FOUNDATION_EXPORT double VersionMigrationVersionNumber;
