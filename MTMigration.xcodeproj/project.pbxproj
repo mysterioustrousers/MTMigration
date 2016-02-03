@@ -10,6 +10,8 @@
 		50D5228D1C61B59B0031B1FB /* VersionMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D5228C1C61B59B0031B1FB /* VersionMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D522911C61B59B0031B1FB /* VersionMigration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D5228A1C61B59B0031B1FB /* VersionMigration.framework */; };
 		50D522921C61B59B0031B1FB /* VersionMigration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50D5228A1C61B59B0031B1FB /* VersionMigration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		50D5229B1C61B6090031B1FB /* MTMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FD66FE316C4854300FE15E2 /* MTMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50D5229C1C61B6100031B1FB /* MTMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD66FE416C4854300FE15E2 /* MTMigration.m */; };
 		5FD66FAF16C4852D00FE15E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FAE16C4852D00FE15E2 /* UIKit.framework */; };
 		5FD66FB116C4852D00FE15E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FB016C4852D00FE15E2 /* Foundation.framework */; };
 		5FD66FB316C4852D00FE15E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FB216C4852D00FE15E2 /* CoreGraphics.framework */; };
@@ -239,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D5228D1C61B59B0031B1FB /* VersionMigration.h in Headers */,
+				50D5229B1C61B6090031B1FB /* MTMigration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D5229C1C61B6100031B1FB /* MTMigration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
