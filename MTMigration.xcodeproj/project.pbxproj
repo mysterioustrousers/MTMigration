@@ -123,13 +123,45 @@
 			path = VersionMigration;
 			sourceTree = "<group>";
 		};
-		5FD66FA216C4852D00FE15E2 = {
+		50D522971C61B5C30031B1FB /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				50D522981C61B5CB0031B1FB /* App */,
+				50D522991C61B5D00031B1FB /* Framework */,
+				50D5229A1C61B5D80031B1FB /* Tests */,
+			);
+			name = Targets;
+			sourceTree = "<group>";
+		};
+		50D522981C61B5CB0031B1FB /* App */ = {
 			isa = PBXGroup;
 			children = (
 				5FD66FB416C4852D00FE15E2 /* MTMigration */,
-				5FD66FD216C4852D00FE15E2 /* MTMigrationTests */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		50D522991C61B5D00031B1FB /* Framework */ = {
+			isa = PBXGroup;
+			children = (
 				50D5228B1C61B59B0031B1FB /* VersionMigration */,
-				5FD66FAD16C4852D00FE15E2 /* Frameworks */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		50D5229A1C61B5D80031B1FB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5FD66FD216C4852D00FE15E2 /* MTMigrationTests */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		5FD66FA216C4852D00FE15E2 = {
+			isa = PBXGroup;
+			children = (
+				50D522971C61B5C30031B1FB /* Targets */,
+				5FD66FAD16C4852D00FE15E2 /* Dependencies */,
 				5FD66FAC16C4852D00FE15E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,14 +176,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5FD66FAD16C4852D00FE15E2 /* Frameworks */ = {
+		5FD66FAD16C4852D00FE15E2 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
 				5FD66FAE16C4852D00FE15E2 /* UIKit.framework */,
 				5FD66FB016C4852D00FE15E2 /* Foundation.framework */,
 				5FD66FB216C4852D00FE15E2 /* CoreGraphics.framework */,
 			);
-			name = Frameworks;
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 		5FD66FB416C4852D00FE15E2 /* MTMigration */ = {
