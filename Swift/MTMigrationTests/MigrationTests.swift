@@ -34,16 +34,26 @@ class MigrationTests: XCTestCase {
             expectation2.fulfill()
         }
         
-        Migration.reset()
-        
-        let expectation3 = self.expectationWithDescription("Expecting block to be run again for version 0.9")
-        Migration.migrateToVersion("0.9") { () -> Void in
+        let expectation3 = self.expectationWithDescription("Expecting block to be run for version 1.0")
+        Migration.migrateToBuild("1") { () -> Void in
             expectation3.fulfill()
         }
         
-        let expectation4 = self.expectationWithDescription("Expecting block to be run again for version 1.0")
-        Migration.migrateToVersion("1.0") { () -> Void in
+        Migration.reset()
+        
+        let expectation4 = self.expectationWithDescription("Expecting block to be run again for version 0.9")
+        Migration.migrateToVersion("0.9") { () -> Void in
             expectation4.fulfill()
+        }
+        
+        let expectation5 = self.expectationWithDescription("Expecting block to be run again for version 1.0")
+        Migration.migrateToVersion("1.0") { () -> Void in
+            expectation5.fulfill()
+        }
+        
+        let expectation6 = self.expectationWithDescription("Expecting block to be run for version 1.0")
+        Migration.migrateToBuild("1") { () -> Void in
+            expectation6.fulfill()
         }
         
         self.waitForAllExpectations()
@@ -116,7 +126,20 @@ class MigrationTests: XCTestCase {
         self.waitForAllExpectations()
     }
     
-    func testRunsApplicationUpdateBlockeOnlyOnceWithMultipleMigrations() {
+    func testRunsBuildNumberUpdateBlockOnce() {
+        let expectation = self.expectationWithDescription("Should only call block once")
+        Migration.buildNumberUpdate { () -> Void in
+            expectation.fulfill()
+        }
+        
+        Migration.buildNumberUpdate { () -> Void in
+            XCTFail("Expected buildNumberUpdate to be called only once")
+        }
+        
+        self.waitForAllExpectations()
+    }
+    
+    func testRunsApplicationUpdateBlockOnlyOnceWithMultipleMigrations() {
         Migration.migrateToVersion("0.8") { () -> Void in
             // Do something
         }
@@ -131,6 +154,27 @@ class MigrationTests: XCTestCase {
         
         let expectation = self.expectationWithDescription("Should call the applicationUpdate only once no matter how many migrations have to be done")
         Migration.applicationUpdate { () -> Void in
+            expectation.fulfill()
+        }
+        
+        self.waitForAllExpectations()
+    }
+    
+    func testRunsBuildUpdateUpdateBlockOnlyOnceWithMultipleMigrations() {
+        Migration.migrateToVersion("0.8") { () -> Void in
+            // Do something
+        }
+        
+        Migration.migrateToVersion("0.9") { () -> Void in
+            // Do something
+        }
+        
+        Migration.migrateToVersion("0.10") { () -> Void in
+            // Do something
+        }
+        
+        let expectation = self.expectationWithDescription("Should call the buildNumberUpdate only once no matter how many migrations have to be done")
+        Migration.buildNumberUpdate { () -> Void in
             expectation.fulfill()
         }
         
