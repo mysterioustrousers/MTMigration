@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50D5228D1C61B59B0031B1FB /* VersionMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D5228C1C61B59B0031B1FB /* VersionMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50D5229B1C61B6090031B1FB /* MTMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FD66FE316C4854300FE15E2 /* MTMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50D5229C1C61B6100031B1FB /* MTMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD66FE416C4854300FE15E2 /* MTMigration.m */; };
 		5FD66FAF16C4852D00FE15E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FAE16C4852D00FE15E2 /* UIKit.framework */; };
 		5FD66FB116C4852D00FE15E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FB016C4852D00FE15E2 /* Foundation.framework */; };
 		5FD66FB316C4852D00FE15E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD66FB216C4852D00FE15E2 /* CoreGraphics.framework */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50D5228A1C61B59B0031B1FB /* VersionMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VersionMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D5228C1C61B59B0031B1FB /* VersionMigration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionMigration.h; sourceTree = "<group>"; };
+		50D5228E1C61B59B0031B1FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FD66FAB16C4852D00FE15E2 /* MTMigration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTMigration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD66FAE16C4852D00FE15E2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FD66FB016C4852D00FE15E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,6 +63,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50D522861C61B59B0031B1FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FD66FA816C4852D00FE15E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,12 +92,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5FD66FA216C4852D00FE15E2 = {
+		50D5228B1C61B59B0031B1FB /* VersionMigration */ = {
+			isa = PBXGroup;
+			children = (
+				50D5228C1C61B59B0031B1FB /* VersionMigration.h */,
+				50D5228E1C61B59B0031B1FB /* Info.plist */,
+			);
+			path = VersionMigration;
+			sourceTree = "<group>";
+		};
+		50D522971C61B5C30031B1FB /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				50D522981C61B5CB0031B1FB /* App */,
+				50D522991C61B5D00031B1FB /* Framework */,
+				50D5229A1C61B5D80031B1FB /* Tests */,
+			);
+			name = Targets;
+			sourceTree = "<group>";
+		};
+		50D522981C61B5CB0031B1FB /* App */ = {
 			isa = PBXGroup;
 			children = (
 				5FD66FB416C4852D00FE15E2 /* MTMigration */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		50D522991C61B5D00031B1FB /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				50D5228B1C61B59B0031B1FB /* VersionMigration */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		50D5229A1C61B5D80031B1FB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
 				5FD66FD216C4852D00FE15E2 /* MTMigrationTests */,
-				5FD66FAD16C4852D00FE15E2 /* Frameworks */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		5FD66FA216C4852D00FE15E2 = {
+			isa = PBXGroup;
+			children = (
+				50D522971C61B5C30031B1FB /* Targets */,
+				5FD66FAD16C4852D00FE15E2 /* Dependencies */,
 				5FD66FAC16C4852D00FE15E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,18 +149,19 @@
 			children = (
 				5FD66FAB16C4852D00FE15E2 /* MTMigration.app */,
 				5FD66FCB16C4852D00FE15E2 /* MTMigrationTests.xctest */,
+				50D5228A1C61B59B0031B1FB /* VersionMigration.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5FD66FAD16C4852D00FE15E2 /* Frameworks */ = {
+		5FD66FAD16C4852D00FE15E2 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
 				5FD66FAE16C4852D00FE15E2 /* UIKit.framework */,
 				5FD66FB016C4852D00FE15E2 /* Foundation.framework */,
 				5FD66FB216C4852D00FE15E2 /* CoreGraphics.framework */,
 			);
-			name = Frameworks;
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 		5FD66FB416C4852D00FE15E2 /* MTMigration */ = {
@@ -155,7 +211,37 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		50D522871C61B59B0031B1FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D5228D1C61B59B0031B1FB /* VersionMigration.h in Headers */,
+				50D5229B1C61B6090031B1FB /* MTMigration.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		50D522891C61B59B0031B1FB /* VersionMigration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50D522951C61B59B0031B1FB /* Build configuration list for PBXNativeTarget "VersionMigration" */;
+			buildPhases = (
+				50D522851C61B59B0031B1FB /* Sources */,
+				50D522861C61B59B0031B1FB /* Frameworks */,
+				50D522871C61B59B0031B1FB /* Headers */,
+				50D522881C61B59B0031B1FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VersionMigration;
+			productName = VersionMigration;
+			productReference = 50D5228A1C61B59B0031B1FB /* VersionMigration.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		5FD66FAA16C4852D00FE15E2 /* MTMigration */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FD66FDD16C4852D00FE15E2 /* Build configuration list for PBXNativeTarget "MTMigration" */;
@@ -201,6 +287,11 @@
 				CLASSPREFIX = MT;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Mysterious Trousers";
+				TargetAttributes = {
+					50D522891C61B59B0031B1FB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
 			};
 			buildConfigurationList = 5FD66FA616C4852D00FE15E2 /* Build configuration list for PBXProject "MTMigration" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -216,11 +307,19 @@
 			targets = (
 				5FD66FAA16C4852D00FE15E2 /* MTMigration */,
 				5FD66FCA16C4852D00FE15E2 /* MTMigrationTests */,
+				50D522891C61B59B0031B1FB /* VersionMigration */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50D522881C61B59B0031B1FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FD66FA916C4852D00FE15E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,6 +358,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50D522851C61B59B0031B1FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D5229C1C61B6100031B1FB /* MTMigration.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FD66FA716C4852D00FE15E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +414,77 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		50D522931C61B59B0031B1FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = VersionMigration/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = mystrou.VersionMigration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		50D522941C61B59B0031B1FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = VersionMigration/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = mystrou.VersionMigration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		5FD66FDB16C4852D00FE15E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -371,6 +549,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTMigration/MTMigration-Prefix.pch";
 				INFOPLIST_FILE = "MTMigration/MTMigration-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -382,6 +561,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTMigration/MTMigration-Prefix.pch";
 				INFOPLIST_FILE = "MTMigration/MTMigration-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -424,6 +604,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50D522951C61B59B0031B1FB /* Build configuration list for PBXNativeTarget "VersionMigration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D522931C61B59B0031B1FB /* Debug */,
+				50D522941C61B59B0031B1FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FD66FA616C4852D00FE15E2 /* Build configuration list for PBXProject "MTMigration" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
