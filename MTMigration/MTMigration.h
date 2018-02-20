@@ -26,8 +26,7 @@ typedef void (^MTExecutionBlock)(void);
 
 /**
  Executes a block of code for a specific build number and remembers this build as the latest migration done by MTMigration.
-
- @param buildNumber A string with a specific build number
+ 
  @param migrationBlock A block object to be executed when the application build matches the string 'build'. This parameter can't be nil.
 
  */
